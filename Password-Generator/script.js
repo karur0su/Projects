@@ -1,4 +1,4 @@
-// The Password generator will provide a password with 8-50  characters based on criteria the user specifies.
+// The Password generator will let user choose a length of at least 8 characters and no more than 128 characters.
 
 //Assignment Code + Event Listener to prompt questions when button pushed
 document.querySelector("#generate").addEventListener("click", writePassword);
@@ -16,14 +16,15 @@ var confirmNumericCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
 
-// Prompt to confirm how many characters the user would like in their password
-function generatePassword() {
-  var confirmLength = (prompt("How many characters would you like your password to contain?"));
+// The length of at least 8 characters and no more than 128 characters
 
-  // Loop if answer is outside the parameters 
-  while(confirmLength <= 7 || confirmLength >= 51) {
-      alert("Password length must be between 8-128 characters Try again");
-      var confirmLength = (prompt("How many characters would you like your password to contain?"));
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like your password to contain? (8-128 characters)"));
+
+  // Loop if user answers are outside the established boundary conditions 
+  while(confirmLength <= 7 || confirmLength >= 129) {
+      alert("Password length must be between 8-128 characters please try again.");
+      var confirmLength = (prompt("How many characters would you like your password to contain? (8-128)"));
       } 
 
       // Repeat back how many charactes the user will have  
